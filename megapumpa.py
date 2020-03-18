@@ -19,6 +19,8 @@ DATA_DIR = os.path.join(ROOT_DIR, "data")
 DUMP_PATH = os.path.join(DATA_DIR, "data.json")
 CSV_PATH = os.path.join(DATA_DIR, "csv.json")
 PCKG_PATH = os.path.join(DATA_DIR, "pckg.json")
+API = 'f5f8bf22-799d-4b8f-852b-504577ff279c'  # plati od 2020-03-18
+# API = "43fd2090-bb75-423c-889f-483d4de53888"
 
 
 def chunks(source, num):
@@ -31,7 +33,6 @@ def strip_accents(s):
                    if unicodedata.category(c) != 'Mn')
 
 
-API = "43fd2090-bb75-423c-889f-483d4de53888"
 h = {"Authorization": API}
 INDEX_NAME = "star-ckan"
 DOCTYPE = 'record'
@@ -57,7 +58,7 @@ for numr, j in enumerate(pkdict["result"]):
         if d["format"].lower() == "csv":
             b = []
             url_source = urlparse(d["url"])  # puvodni URL datasetu
-            url_docker = url_source._replace(netloc='ckan:5000', scheme='http') # nahradit http://star.env.cz
+            url_docker = url_source._replace(netloc='ckan:5000', scheme='http')  # nahradit http://star.env.cz
             r = requests.get(url_docker.geturl(), headers=h)
             fo = open(CSV_PATH, "wb")
             fo.write(r.content)
