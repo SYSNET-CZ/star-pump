@@ -4,7 +4,7 @@ MAINTAINER SYSNET-CZ "info@sysnet.cz"
 RUN apt-get update \
     && apt-get -y install cron
 RUN apt-get update \
-    && apt-get install -y python3.6-pip python3.6-dev \
+    && apt-get install -y python3-pip python3.6-dev \
     && cd /usr/local/bin \
     && ln -s /usr/bin/python3.6 python \
     && pip3 install --upgrade pip
@@ -18,7 +18,7 @@ WORKDIR /opt/pumpa
 COPY logs .
 COPY data .
 COPY megapumpa.py .
-COPY requirements.txt
+COPY requirements.txt .
 RUN pip install -r requirements.txt
 RUN chmod a+x megapumpa.py  && ln -s megapumpa.py  megapumpa
 
