@@ -1,7 +1,7 @@
 # STAR PUMPA
 
-Pumpuje data zu katalogu STaR do Elasticsearch. 
-Pumpa běží každou hodinu ve dvanácz minut po celé. 
+Pumpuje data z katalogu STaR do Elasticsearch. 
+Pumpa běží každou hodinu ve dvanáct minut po celé. 
 
 
 ## Docker
